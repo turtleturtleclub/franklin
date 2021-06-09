@@ -55,7 +55,8 @@ client.on('message', message => {
                 message.channel.send(`Do not worry, I am always here ${message.member.displayName} searching the pond for blocks.`);
                message.react('🐢');
         }
-        else if (message.content === 'hugs' || message.content === 'Hugs' || message.content === 'hug' || message.content === 'Hug' || message.content === 'Hugs Franklin' || message.content === 'hug Franklin' || message.content === 'hug$                message.channel.send(`That was quite the turtley hug ${message.member.displayName}`);
+        else if (message.content === 'hugs' || message.content === 'Hugs' || message.content === 'hug' || message.content === 'Hug' || message.content === 'Hugs Franklin' || message.content === 'hug Franklin') {
+		message.channel.send(`That was quite the turtley hug, ${message.member.displayName} :hugging:`);
                 message.react('🐢');
         }
         else if (message.content === '🐢') {
