@@ -91,11 +91,34 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	var usertextlower string
 	usertextlower = strings.ToLower(m.Content)
 
+	println(usertextlower)
+
 	if strings.Contains(usertextlower, "block") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Patience is a virtue, %s :turtle::turtle:", m.Author.Username))
 	}
-	if strings.Contains(usertextlower, "hug") {
+	if strings.Contains(usertextlower, "hug") && !strings.Contains(usertextlower, "huge") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("That was a turtturtley hug, %s :turtle::turtle:", m.Author.Username))
+	}
+	if strings.Contains(usertextlower, "poop") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Don't be like Naefunk, %s :poop::eyes:", m.Author.Username))
+	}
+	if strings.Contains(usertextlower, "welcome") {
+		s.ChannelMessageSend(m.ChannelID, "Welcome turtle frennnnn! :turtle::turtle:")
+	}
+	if strings.Contains(usertextlower, "rtx2070") {
+		s.ChannelMessageSend(m.ChannelID, "Sounds like you'll want to use CryptoDredge for an estimated hashrate of 42kH/s. Try an intensity of -8. Overclocking you'll want to set 80 percent power limit, -150 core clock and +1050 mem clock. If you can, update the spreadsheet with your findings: https://docs.google.com/spreadsheets/d/1dQu_uQNywE3iO93Da5d8dR7QJk7swtTnavk9RSy47_0/edit#gid=729088538 :turtle::turtle:")
+	}
+	if strings.Contains(usertextlower, "dirty turtle") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("That's not my thing, %s!", m.Author.Username))
+	}
+	if strings.Contains(usertextlower, "shut up franklin") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("You don't own me, %s. I'm a free turtle!", m.Author.Username))
+	}
+	if strings.Contains(usertextlower, "hey Franklin") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Hello, %s. Nice to see you again!", m.Author.Username))
+	}
+	if strings.Contains(usertextlower, "Franklin?") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Do not worry %s! I am always here searching the pond for blocks.", m.Author.Username))
 	}
 	if strings.Contains(usertextlower, "btc-trtl") {
 		url := "https://tradeogre.com/api/v1/ticker/BTC-TRTL"
