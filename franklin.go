@@ -114,10 +114,10 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if strings.Contains(usertextlower, "shut up franklin") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("You don't own me, %s. I'm a free turtle!", m.Author.Username))
 	}
-	if strings.Contains(usertextlower, "hey Franklin") {
+	if strings.Contains(usertextlower, "hey franklin") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Hello, %s. Nice to see you again!", m.Author.Username))
 	}
-	if strings.Contains(usertextlower, "Franklin?") {
+	if strings.Contains(usertextlower, "franklin?") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Do not worry %s! I am always here searching the pond for blocks.", m.Author.Username))
 	}
 	if strings.Contains(usertextlower, "btc-trtl") {
