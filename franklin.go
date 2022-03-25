@@ -93,8 +93,8 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	println(usertextlower)
 
-	if strings.Contains(usertextlower, "block") {
-		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Patience is a virtue, %s :turtle::turtle:", m.Author.Username))
+	if strings.Contains(usertextlower, "blocks") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("The blocks are just flying out now, %s :turtle::turtle:", m.Author.Username))
 	}
 	if strings.Contains(usertextlower, "hug") && !strings.Contains(usertextlower, "huge") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("That was a turtturtley hug, %s :turtle::turtle:", m.Author.Username))
@@ -120,6 +120,16 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if strings.Contains(usertextlower, "franklin?") {
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Do not worry %s! I am always here searching the pond for blocks.", m.Author.Username))
 	}
+	if strings.Contains(usertextlower, "tut tut") {
+                s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("I love the rain, %s! send me some TRTL and keep the rain coming! My wallet address is TRTLv1m7FFnTybogRLyaaJDmmGVwae98j68L28AsZ6VxBLgHdjotEhu6HoYd4BpAiuSXLVqxbXEybHykFoH5Vr1h3HacVLo73p1", m.Author.Username))
+        }
+	if strings.Contains(usertextlower, "weather") {
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Well %s, you best hold on to your shell because there's a storm a brewin'! But this is when all the turtles come out so get ready! :cloud_lightning::cloud_lightning: :turtle::turtle: :cloud_lightning::cloud_lightning:", m.Author.Username))
+	}
+  	if strings.Contains(usertextlower, "floor") {
+                s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("What are all these TiMMYs doing on the floor, %s? :turtle: Can you help me pick them up? A special 'TiMMY Cleaner' role could be rewarding! :coin::broom:", m.Author.Username))
+        }
+
 	if strings.Contains(usertextlower, "btc-trtl") {
 		url := "https://tradeogre.com/api/v1/ticker/BTC-TRTL"
 
