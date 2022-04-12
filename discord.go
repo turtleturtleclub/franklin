@@ -92,25 +92,39 @@ func parseMessage(s *discordgo.Session, m *discordgo.MessageCreate, messageInput
 		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("1 :turtle: to BTC is %s ", tp.Ask))
 
 		return
+	} else if strings.Contains(messageInput, "wtrtl price") {
+		log.Println("Received \"wtrtl price\" command")
+
+		httpGetResponse := httpGet("https://api.coingecko.com/api/v3/simple/token_price/fantom?contract_addresses=0x6a31aca4d2f7398f04d9b6ffae2d898d9a8e7938&vs_currencies=usd")
+
+		defer httpGetResponse.Body.Close()
+
+		var tp wTRTL
+		log.Println(httpGetResponse.Body)
+		json.NewDecoder(httpGetResponse.Body).Decode(&tp)
+		log.Println(tp)
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("1 wTRTL to USD is %d ", tp.Usd))
+
+		return
 	} else if strings.Contains(messageInput, "block height") {
 		log.Println("Received \"block height\" command")
 
 		httpGetResponse := httpGet("http://lily.turtleturtle.club:11898/height")
-
+		log.Println(httpGetResponse)
 		defer httpGetResponse.Body.Close()
 
-		var height Height
+		var tp Height
 
-		json.NewDecoder(httpGetResponse.Body).Decode(&height)
+		json.NewDecoder(httpGetResponse.Body).Decode(&tp)
 
-		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Current network block height is %d", height.NetworkHeight))
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Current network block height is %d", tp.NetworkHeight))
 
 		return
 	} else if strings.Contains(messageInput, "hashrate") {
 		log.Println("Received \"hashrate\" command")
 
-		httpGetResponse := httpGet("https://turtleturtle.club:8119/stats")
-
+		httpGetResponse := httpGet("https://pond.turtleturtle.club:8119/stats")
+		log.Println(httpGetResponse)
 		defer httpGetResponse.Body.Close()
 
 		var tp Pool

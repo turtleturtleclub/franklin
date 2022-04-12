@@ -19,6 +19,11 @@ type Height struct {
 
 // Pool is the hashrate and last block response from the pool daemon
 type Pool struct {
-	Hashrate  int32 `json:"hashrate,omitempty"  db:"hashrate"`
+	Hashrate  int64 `json:"hashrate,omitempty"  db:"hashrate"`
 	LastBlock int64 `json:"lastBlockFoundprop,omitempty"  db:"last_block"`
+}
+
+// Wtrtl is a struct model of the JSON response from the price API from CoinGecko
+type wTRTL struct {
+	Usd int32 `json:"usd,omitempty"  db:"usd"`
 }
